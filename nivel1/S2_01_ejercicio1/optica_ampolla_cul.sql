@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS clientes;
 -- TABLA DE PROVEEDORES, no depende de nadie
 CREATE TABLE proveedores (
 id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR (50) NOT NULL,
+nombre VARCHAR (50),
 calle VARCHAR(50),
 numero VARCHAR (10),
 piso VARCHAR (10),
@@ -19,34 +19,34 @@ codigo_postal VARCHAR(10),
 pais VARCHAR (50),
 telefono VARCHAR (15), 
 fax VARCHAR (15),
-nif VARCHAR (20) UNIQUE NOT NULL
+nif VARCHAR (20) UNIQUE
 );
 
 -- TABLA DE GAFAS, depende de proveedores 
 CREATE TABLE gafas (
 id_gafas INT AUTO_INCREMENT PRIMARY KEY,
-marca VARCHAR (50) NOT NULL,
+marca VARCHAR (50),
 graduacion_ojo_der VARCHAR (20),
 graduacion_ojo_izq VARCHAR (20),
-tipo_montura ENUM("metalica", "de pasta", "flotante") NOT NULL,
+tipo_montura ENUM("metalica", "de pasta", "flotante"),
 color_montura VARCHAR (20),
 color_cristal_der VARCHAR (20),
 color_cristal_izq VARCHAR (20),
-precio DECIMAL (10, 2) NOT NULL,
-id_proveedor INT NOT NULL, 
-FOREIGN KEY (id_proveedor) REFERENCES proveedores (id_proveedor) ON DELETE RESTRICT
+precio DECIMAL (10, 2),
+id_proveedor INT, 
+FOREIGN KEY (id_proveedor) REFERENCES proveedores (id_proveedor)
 );
 
 -- TABLA DE CLIENTES, auto relacion
 CREATE TABLE clientes (
 id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR (50) NOT NULL,
+nombre VARCHAR (50),
 direccion VARCHAR (50),
 telefono VARCHAR (20),
 email VARCHAR (20),
-fecha_registro DATE NOT NULL,
+fecha_registro DATE,
 recomendado_por INT,
-FOREIGN KEY (recomendado_por) REFERENCES clientes (id_cliente) ON DELETE SET NULL
+FOREIGN KEY (recomendado_por) REFERENCES clientes (id_cliente)
 );
 
 -- TABLA EMPLEADOS, no depende de nadie
@@ -62,12 +62,12 @@ email VARCHAR (50)
 CREATE TABLE ventas (
 id_venta INT AUTO_INCREMENT PRIMARY KEY,
 fecha_venta DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-id_empleado INT NOT NULL,
-id_cliente INT NOT NULL,
-id_gafas INT NOT NULL,
-FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado) ON DELETE RESTRICT,
-FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE RESTRICT,
-FOREIGN KEY (id_gafas) REFERENCES gafas(id_gafas) ON DELETE RESTRICT
+id_empleado INT,
+id_cliente INT,
+id_gafas INT,
+FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado),
+FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+FOREIGN KEY (id_gafas) REFERENCES gafas(id_gafas)
 );
 
 
