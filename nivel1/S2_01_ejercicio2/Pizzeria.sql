@@ -1,7 +1,6 @@
 CREATE DATABASE IF NOT EXISTS pedidos_comida;
 USE pedidos_comida;
 
--- CLIENTES (no depende de nadie)
 CREATE TABLE clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
@@ -13,7 +12,6 @@ CREATE TABLE clientes (
     telefono VARCHAR(20)
 );
 
--- TIENDAS (no depende de nadie)
 CREATE TABLE tiendas (
     id_tienda INT AUTO_INCREMENT PRIMARY KEY,
     direccion VARCHAR(200),
@@ -22,7 +20,6 @@ CREATE TABLE tiendas (
     provincia VARCHAR(100)
 );
 
--- EMPLEADOS (depende de TIENDAS)
 CREATE TABLE empleados (
     id_empleado INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
@@ -34,13 +31,11 @@ CREATE TABLE empleados (
     FOREIGN KEY (id_tienda) REFERENCES tiendas(id_tienda)
 );
 
--- CATEGORIAS (no depende de nadie)
 CREATE TABLE categorias (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100)
 );
 
--- PRODUCTOS (depende de CATEGORIAS)
 CREATE TABLE productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
@@ -58,7 +53,6 @@ CREATE TABLE productos (
     )
 );
 
--- PEDIDOS (depende de CLIENTES y TIENDAS)
 CREATE TABLE pedidos (
     id_pedido INT AUTO_INCREMENT PRIMARY KEY,
     fecha_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -70,7 +64,6 @@ CREATE TABLE pedidos (
     FOREIGN KEY (id_tienda) REFERENCES tiendas(id_tienda)
 );
 
--- PEDIDO_PRODUCTOS (tabla intermedia N:M)
 CREATE TABLE pedido_productos (
     id_pedido INT,
     id_producto INT,
@@ -81,7 +74,6 @@ CREATE TABLE pedido_productos (
     FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
 );
 
--- ENTREGAS (solo para pedidos a domicilio)
 CREATE TABLE entregas (
     id_entrega INT AUTO_INCREMENT PRIMARY KEY,
     id_pedido INT,
