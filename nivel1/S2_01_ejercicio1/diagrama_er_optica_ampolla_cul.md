@@ -30,7 +30,7 @@
 │ color_cristal_i │
 │ color_cristal_d │
 │ precio          │
-│ id_proveedor FK │◄─── (relaciona con PROVEEDORES)
+│ id_proveedor FK │
 └─────────────────┘
         │
         │ se vende en
@@ -68,5 +68,5 @@
 │ telefono        │  │
 │ email           │  │
 │ fecha_registro  │  │
-│ recomendado_por │◄─┘ (FK que apunta a otro cliente)
+│ recomendado_por │◄─┘ FK apunta a otro cliente
 └─────────────────┘
