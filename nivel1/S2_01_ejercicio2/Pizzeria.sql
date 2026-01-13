@@ -82,7 +82,5 @@ CREATE TABLE entregas (
     FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
     FOREIGN KEY (id_repartidor) REFERENCES empleados(id_empleado),
     -- Validación: el repartidor debe tener puesto 'repartidor'
-    CHECK (id_repartidor IN (
-        SELECT id_empleado FROM empleados WHERE puesto = 'repartidor'
-    ))
+    CHECK (id_repartidor IN (SELECT id_empleado FROM empleados WHERE puesto = 'repartidor'))
 );
