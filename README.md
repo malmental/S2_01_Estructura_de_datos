@@ -1,6 +1,6 @@
 # Sprint 2  
 
-  **Descripción**: Repo para Estructuras de datos SQL y MongoDB 
+  **Descripción**: Repo para Estructuras de datos SQL
   
   ## 🛠 Tecnologias  
   - MySql Workbench 
