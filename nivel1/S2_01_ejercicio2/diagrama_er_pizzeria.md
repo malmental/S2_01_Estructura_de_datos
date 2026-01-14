@@ -4,7 +4,6 @@
 │ id_categoria PK  │
 │ nombre           │
 └──────────────────┘
-        │
         │ tiene (1:N)
         ▼
 ┌──────────────────┐
@@ -18,19 +17,17 @@
 │ tipo             │
 │ id_categoria FK  │
 └──────────────────┘
-        │
         │ forma parte de (N:M)
         ▼
 ┌──────────────────────┐
 │  PEDIDO_PRODUCTOS    │  TABLA INTERMEDIA
 │──────────────────────│
-│ id_pedido PK,FK      │
 │ id_producto PK,FK    │
+│ id_pedido PK,FK      │
 │ cantidad             │
 │ precio_unitario      │
 └──────────────────────┘
         ▲
-        │
         │
 ┌──────────────────┐
 │     PEDIDOS      │
@@ -42,7 +39,6 @@
 │ id_cliente FK    │◄───┐
 │ id_tienda FK     │◄───┼───┐
 └──────────────────┘    │   │
-        │               │   │
         │ tiene (1:1)   │   │
         ▼               │   │
 ┌──────────────────┐    │   │
@@ -53,7 +49,6 @@
 │ id_repartidor FK │◄───┼───┼───┐
 │ fecha_entrega    │    │   │   │
 └──────────────────┘    │   │   │
-                        │   │   │
 ┌──────────────────┐    │   │   │
 │    CLIENTES      │    │   │   │
 │──────────────────│    │   │   │
@@ -66,7 +61,6 @@
 │ provincia        │        │   │
 │ telefono         │        │   │
 └──────────────────┘        │   │
-                            │   │
 ┌──────────────────┐        │   │
 │     TIENDAS      │        │   │
 │──────────────────│        │   │
@@ -76,7 +70,6 @@
 │ localidad        │            │
 │ provincia        │            │
 └──────────────────┘            │
-        │                       │
         │ trabajan en (1:N)     │
         ▼                       │
 ┌──────────────────┐            │
