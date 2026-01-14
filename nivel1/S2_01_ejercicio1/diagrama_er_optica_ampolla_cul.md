@@ -14,7 +14,6 @@
 │ fax             │
 │ nif             │
 └─────────────────┘
-        │
         │ suministra
         │ (1:N)
         ▼
@@ -23,16 +22,15 @@
 │─────────────────│
 │ id_gafas PK     │
 │ marca           │
-│ graduacion_izq  │
-│ graduacion_der  │
+│ graduacion_d    │
+│ graduacion_i    │
 │ tipo_montura    │
 │ color_montura   │
-│ color_cristal_i │
 │ color_cristal_d │
+│ color_cristal_i │
 │ precio          │
 │ id_proveedor FK │
 └─────────────────┘
-        │
         │ se vende en
         │ (N:M)
         ▼
@@ -45,12 +43,8 @@
 │ id_cliente FK   │◄─┤
 │ id_gafas FK     │◄─┤
 └─────────────────┘  │
-        ▲            │
+        ▲            │ 
         │            │
-        │            │
-   ┌────┴────┐       │
-   │         │       │
-   │         │       │
 ┌─────────────────┐  │
 │   EMPLEADOS     │  │
 │─────────────────│  │
@@ -58,7 +52,6 @@
 │ nombre          │
 │ apellido        │
 └─────────────────┘
-        
 ┌─────────────────┐
 │    CLIENTES     │
 │─────────────────│
@@ -68,5 +61,5 @@
 │ telefono        │  │
 │ email           │  │
 │ fecha_registro  │  │
-│ recomendado_por │◄─┘ FK apunta a otro cliente
+│ recomendado_por │◄─┘ FK Aqui se produce la auto-relación
 └─────────────────┘
