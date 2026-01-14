@@ -50,7 +50,9 @@
 │─────────────────│  │
 │ id_empleado PK  │──┘
 │ nombre          │
-│ apellido        │
+│ apellido        │  
+│ telefono        │
+│ email           │
 └─────────────────┘
 ┌─────────────────┐
 │    CLIENTES     │
